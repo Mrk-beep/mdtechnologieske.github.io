@@ -1,20 +1,20 @@
-// PRODUCT DATABASE (Laptops, Phones, Accessories)
+
 const techProducts = [
-  // LAPTOPS
+
   { id: 1, name: "MacBook Air M3", category: "laptop", price: "$1199", icon: "fab fa-apple", desc: "13.6″ Liquid Retina, 8GB RAM, 256GB SSD, 18h battery", tag: "Laptop" },
   { id: 2, name: "Dell XPS 16 Plus", category: "laptop", price: "$1499", icon: "fas fa-laptop-code", desc: "Intel Ultra 7, 16GB RAM, 1TB SSD, OLED touch", tag: "Laptop" },
   { id: 3, name: "ASUS ROG Zephyrus", category: "laptop", price: "$1699", icon: "fas fa-gamepad", desc: "RTX 4060, 240Hz display, liquid metal cooling", tag: "Laptop" },
   { id: 4, name: "HP Spectre x360", category: "laptop", price: "$1299", icon: "fas fa-tachometer-alt", desc: "2-in-1 touch, Intel Evo, stylus included", tag: "Laptop" },
   { id: 5, name: "Lenovo ThinkPad X1", category: "laptop", price: "$1599", icon: "fas fa-briefcase", desc: "Business ultrabook, 32GB RAM, 1TB SSD", tag: "Laptop" },
   
-  // PHONES
+
   { id: 6, name: "iPhone 15 Pro Max", category: "phone", price: "$1199", icon: "fab fa-apple", desc: "A17 Pro, 256GB, Titanium, 5x optical zoom", tag: "Phone" },
   { id: 7, name: "Samsung Galaxy S24 Ultra", category: "phone", price: "$1299", icon: "fab fa-android", desc: "AI zoom, S Pen, 200MP camera, titanium frame", tag: "Phone" },
   { id: 8, name: "Google Pixel 8 Pro", category: "phone", price: "$999", icon: "fab fa-google", desc: "Pure Android, AI magic, 5 years updates", tag: "Phone" },
   { id: 9, name: "OnePlus 12", category: "phone", price: "$799", icon: "fas fa-charging-station", desc: "Snapdragon 8 Gen 3, 100W charging", tag: "Phone" },
   { id: 10, name: "Nothing Phone (2)", category: "phone", price: "$649", icon: "fas fa-lightbulb", desc: "Glyph interface, unique design, 50MP dual", tag: "Phone" },
+
   
-  // ACCESSORIES
   { id: 11, name: "Sony WH-1000XM6", category: "accessory", price: "$399", icon: "fas fa-headphones", desc: "Noise canceling, 40h battery, hi-res audio", tag: "Headphones" },
   { id: 12, name: "Apple AirPods Pro 2", category: "accessory", price: "$249", icon: "fab fa-apple", desc: "ANC, Adaptive transparency, USB-C, H2 chip", tag: "Earbuds" },
   { id: 13, name: "Logitech MX Keys S", category: "accessory", price: "$119", icon: "fas fa-keyboard", desc: "Wireless ergonomic, backlit, multi-device", tag: "Keyboard" },
@@ -27,7 +27,6 @@ const techProducts = [
   { id: 20, name: "SteelSeries Arctis 7", category: "accessory", price: "$159", icon: "fas fa-headphones", desc: "Wireless gaming headset, 24h battery", tag: "Headphones" }
 ];
 
-// DOM elements
 const productsGrid = document.getElementById('productsGrid');
 const categoryIcons = document.querySelectorAll('.cat-icon');
 const toastEl = document.getElementById('toastMessage');
@@ -35,7 +34,6 @@ const toastEl = document.getElementById('toastMessage');
 let activeCategory = 'all';
 let toastTimer = null;
 
-// Toast message helper
 function showMessage(msg) {
   if (!toastEl) return;
   toastEl.textContent = msg || "✨ Request noted! Our team will reach out.";
@@ -46,7 +44,7 @@ function showMessage(msg) {
   }, 2800);
 }
 
-// Attach inquiry events to product buttons
+
 function attachInquiryEvents() {
   document.querySelectorAll('.btn-inquire').forEach(btn => {
     btn.removeEventListener('click', btn.inquiryHandler);
@@ -61,7 +59,7 @@ function attachInquiryEvents() {
   });
 }
 
-// Update heading text based on active filter
+
 function updateHeadingText() {
   const filterHeadingH2 = document.querySelector('.filter-heading h2');
   if (!filterHeadingH2) return;
@@ -71,7 +69,7 @@ function updateHeadingText() {
   else if (activeCategory === 'accessory') filterHeadingH2.innerHTML = `<i class="fas fa-headphones"></i> Tech Accessories & Gear`;
 }
 
-// Render products according to active filter
+
 function renderProducts() {
   if (!productsGrid) return;
   let filtered = activeCategory === 'all' ? [...techProducts] : techProducts.filter(p => p.category === activeCategory);
@@ -102,7 +100,7 @@ function renderProducts() {
   updateHeadingText();
 }
 
-// Set active filter category
+
 function setActiveFilter(catValue) {
   activeCategory = catValue;
   categoryIcons.forEach(icon => {
@@ -116,7 +114,7 @@ function setActiveFilter(catValue) {
   renderProducts();
 }
 
-// Event listeners for filter icons
+
 categoryIcons.forEach(icon => {
   icon.addEventListener('click', () => {
     const cat = icon.getAttribute('data-cat');
@@ -125,12 +123,12 @@ categoryIcons.forEach(icon => {
     else if (cat === 'phone') setActiveFilter('phone');
     else if (cat === 'accessory') setActiveFilter('accessory');
     
-    // Smooth scroll to products section
+   
     document.getElementById('productsSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
-// Quick support button handler
+
 const quickSupportBtn = document.getElementById('quickSupportBtn');
 if (quickSupportBtn) {
   quickSupportBtn.addEventListener('click', (e) => {
@@ -139,7 +137,6 @@ if (quickSupportBtn) {
   });
 }
 
-// Navigation link smooth scroll
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
@@ -151,7 +148,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-// Service card click handler - shows repair inquiry message
 const serviceCards = document.querySelectorAll('.service-card');
 serviceCards.forEach(card => {
   card.addEventListener('click', () => {
@@ -160,7 +156,7 @@ serviceCards.forEach(card => {
   });
 });
 
-// Hero buttons
+
 const heroPrimaryBtn = document.querySelector('.hero-buttons .btn-primary');
 const heroOutlineBtn = document.querySelector('.hero-buttons .btn-outline');
 
