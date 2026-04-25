@@ -31,11 +31,13 @@ body {
 
 .nav-brand {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem 0;
   flex-wrap: wrap;
   gap: 1rem;
+  flex-direction: column;
+  text-align: center;
 }
 
 .logo h1 {
@@ -46,6 +48,7 @@ body {
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: -0.5px;
+  text-align: center;
 }
 
 .logo span {
@@ -53,12 +56,14 @@ body {
   font-weight: 500;
   color: #3a7ca5;
   display: block;
+  text-align: center;
 }
 
 .nav-links {
   display: flex;
   gap: 1.8rem;
-  list-design.css: none;
+  list-style: none;
+  justify-content: center;
 }
 
 .nav-links a {
@@ -74,7 +79,6 @@ body {
   border-bottom: 2px solid #2c7da0;
   padding-bottom: 4px;
 }
-
 
 .hero {
   display: flex;
@@ -234,7 +238,6 @@ body {
   font-size: 0.9rem;
 }
 
-
 .filter-section {
   margin: 2rem 0 1.5rem;
 }
@@ -307,7 +310,6 @@ body {
   border-color: #b9d0e3;
 }
 
-/* Products Grid */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -417,7 +419,6 @@ body {
   color: #4a627a;
 }
 
-/* Contact Banner */
 .contact-banner {
   background: #103a4e;
   border-radius: 48px;
@@ -466,7 +467,6 @@ body {
   transform: scale(1.02);
 }
 
-/* Toast Message */
 .toast-msg {
   position: fixed;
   bottom: 30px;
@@ -491,7 +491,6 @@ body {
   opacity: 1;
 }
 
-/* Footer */
 footer {
   background: #0a1d2c;
   color: #bccee0;
@@ -501,7 +500,6 @@ footer {
   font-size: 0.85rem;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .hero-content h2 {
     font-size: 2rem;
